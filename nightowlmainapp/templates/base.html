@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Night Owl{% endblock %}</title>
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="{% static 'css/wallet.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}" class="signup-btn">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Night Owl</h1>
+            <p>Design smarter, faster, and more creatively with our platform.</p>
+            <a href="{% url 'signup' %}" class="btn">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'main/images/owl.png' %}" alt="Night Owl mascot">
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Ready to join the Night Owl community?</p>
+        <a href="{% url 'signup' %}" class="btn">Sign Up Now</a>
+    </footer>
+</body>
+</html>
+
+
+

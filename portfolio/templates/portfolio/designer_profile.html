@@ -1,0 +1,71 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<style>
+.profile-wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+}
+.profile-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.skills {
+    margin-top: 15px;
+}
+.skill {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 5px;
+}
+</style>
+
+<div class="profile-wrapper">
+
+    <!-- LEFT PROFILE CARD -->
+    <div class="profile-card">
+        <img class="avatar" src="{{ designer.profile_image.url }}" alt="Profile">
+        <h2>{{ designer.user.username }}</h2>
+        <p>{{ designer.title }}</p>
+
+        <div class="skills">
+            {% for skill in skills_list %}
+                <span class="skill">{{ skill }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- RIGHT PROJECTS -->
+    <div>
+        <h2>Projects</h2>
+        <div class="grid">
+            {% for project in projects %}
+                <div class="card">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description|truncatewords:20 }}</p>
+                </div>
+            {% empty %}
+                <p>No projects yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

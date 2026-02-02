@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top,
+        #1b1f3b,
+        #0a0c1b 75%);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    height: 80px;
+    padding: 0 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.navbar nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #cfd8ff;
+    font-size: 14px;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn-fill {
+    padding: 10px 22px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #6c63ff, #00f2ff);
+    color: #000;
+    font-weight: 600;
+}
+
+.btn-outline {
+    padding: 10px 22px;
+    border-radius: 25px;
+    border: 1px solid #6c63ff;
+    color: #6c63ff;
+}
+
+/* ===== HERO SECTION ===== */
+
+.hero {
+    height: calc(100vh - 80px);
+    padding: 0 80px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+}
+
+.hero-left h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-left p {
+    font-size: 16px;
+    color: #cfd8ff;
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.hero-buttons a {
+    margin-right: 15px;
+}
+
+/* ===== 3D IMAGE EFFECT ===== */
+
+.hero-right img {
+    width: 100%;
+    max-width: 520px;
+    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.8));
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+    100% { transform: translateY(0); }
+}
+

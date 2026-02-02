@@ -1,0 +1,29 @@
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background: #0b1020;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;
+    margin: 15px 0;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+    background: #f4f6fb;
+}
+
+.project {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}

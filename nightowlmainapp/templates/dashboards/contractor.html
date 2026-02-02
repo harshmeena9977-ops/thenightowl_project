@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>🛠 Contractor Dashboard</h2>
+<p>Welcome {{ user.username }}</p>
+
+<ul>
+{% for project in projects %}
+    <li>{{ project.title }} — Designer: {{ project.designer.username }}</li>
+{% empty %}
+    <li>No contracts yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

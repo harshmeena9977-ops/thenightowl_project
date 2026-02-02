@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width:800px;margin:auto;">
+
+  <!-- Project Info -->
+  <h2>{{ project.title }}</h2>
+
+  <p><b>Budget:</b> ₹{{ project.budget }}</p>
+  <p><b>Skills:</b> {{ project.skills }}</p>
+  <p><b>Posted by:</b> {{ project.client.username }}</p>
+
+  <hr>
+
+  <p>{{ project.description }}</p>
+
+  <br>
+
+  <!-- Designer Apply Button -->
+  {% if user.is_authenticated %}
+      {% if user.userprofile.role == 'designer' %}
+          <form method="post" action="{% url 'apply_to_project' project.id %}">
+              {% csrf_token %}
+              <button style="
+                  padding:10px 20px;
+                  border-radius:10px;
+                  border:none;
+                  background:#00c6ff;
+                  color:white;
+              ">
+                  I'm Interested
+              </button>
+          </form>
+      {% endif %}
+
+      <!-- Client Edit/Delete -->
+      {% if user == project.client %}
+          <a href="#" style="margin-right:15px;">✏ Edit</a>
+          <a href="#" style="color:red;">🗑 Delete</a>
+      {% endif %}
+  {% else %}
+      <p><a href="{% url 'login' %}">Login</a> to apply for this project</p>
+  {% endif %}
+
+  <!-- ✅ Chat Section -->
+  {% if user.is_authenticated and project.assigned_designer %}
+      <h2>Project Chat</h2>
+      <a href="{% url 'project_chat' project.id %}" class="btn">
+        💬 Open Chat
+      </a>
+  {% endif %}
+
+  <!-- Applicants Section -->
+  <h2>Applicants</h2>
+  {% if user == project.client %}
+      {% for app in applications %}
+          <div style="margin-bottom:10px">
+              <b>{{ app.designer.username }}</b>
+              <a href="{% url 'hire_designer' project.id app.designer.id %}">
+                  Hire
+              </a>
+          </div>
+      {% empty %}
+          <p>No applications yet.</p>
+      {% endfor %}
+  {% endif %}
+
+</div>
+{% endblock %}
+

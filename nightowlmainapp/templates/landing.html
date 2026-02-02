@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Night Owl</title>
+    <link rel="stylesheet" href="{% static 'main/css/landing.css' %}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">🦉 Night Owl</div>
+    <nav>
+        <a href="#">About</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+        <a href="#" class="btn-outline">Login</a>
+        <a href="#" class="btn-fill">Sign Up</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-left">
+        <h2>Design Your Dream Space</h2>
+        <p>
+            Hire professional interior designers for 2D plans,
+            3D visualization, room & full home design.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#" class="btn-fill">Get Started</a>
+            <a href="#" class="btn-outline">View Portfolio</a>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <img src="{% static 'main/images/hero-3d.png' %}" alt="3D Design">
+    </div>
+</section>
+
+</body>
+</html>
+
+

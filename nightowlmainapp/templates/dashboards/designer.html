@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>🎨 Designer Dashboard</h2>
+<p>Welcome {{ user.username }}</p>
+
+<ul>
+{% for project in projects %}
+    <li>
+        {{ project.title }} — Assigned by {{ project.client.username }}
+
+        {% if project.status == 'in_progress' %}
+          <form method="post" action="{% url 'complete_project' project.id %}">
+              {% csrf_token %}
+              <button type="submit"
+                style="margin-top:10px; padding:8px 14px; background:#00c6ff; color:white; border:none; border-radius:6px;">
+                ✅ Mark as Completed
+              </button>
+          </form>
+        {% endif %}
+    </li>
+{% empty %}
+    <li>No projects assigned yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

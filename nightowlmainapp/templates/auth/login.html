@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="signup-wrapper">
+    <div class="signup-card">
+        
+        <!-- Owl Mascot -->
+        <div class="owl-box">
+            <img src="{% static 'main/images/owl.png' %}" alt="Night Owl Mascot">
+        </div>
+
+        <!-- Glassmorphism Card -->
+        <h2>Login to Night Owl</h2>
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            <!-- Username -->
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            
+            <!-- Password -->
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="glow-button">Login</button>
+        </form>
+        
+        <!-- Signup Link -->
+        <div class="login-link">
+            Don’t have an account? <a href="{% url 'signup' %}">Sign up here</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero">
+  <!-- LEFT CONTENT -->
+  <div class="hero-left">
+    <h2>
+      Design Your Dream Spaces <br>
+      with <span style="color:#6c63ff;">Night Owl</span>
+    </h2>
+
+    <p>
+      A premium freelance platform for interior designers,
+      2D/3D artists, and creative professionals.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="{% url 'signup' %}" class="btn-fill">Get Started</a>
+      <a href="{% url 'login' %}" class="btn-outline">Login</a>
+    </div>
+  </div>
+
+  <!-- RIGHT 3D OWL -->
+  <div class="hero-right">
+    <img src="{% static 'nightowlmainapp/images/owl.png' %}" alt="Night Owl Mascot">
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="feature-card">
+    <h3>🏠 Interior Experts</h3>
+    <p>Hire professional interior designers and 3D artists.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🎥 2D / 3D Animation</h3>
+    <p>Bring your home designs to life with realistic visuals.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🤝 Secure Freelancing</h3>
+    <p>Safe payments, verified designers, and smooth workflow.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Build your dream space with Night Owl</h2>
+  <a href="{% url 'signup' %}" class="btn-fill">Join Now</a>
+</section>
+
+{% endblock %}
+
+
+
+

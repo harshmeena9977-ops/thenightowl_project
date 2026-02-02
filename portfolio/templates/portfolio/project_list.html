@@ -1,0 +1,22 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<h1>Our Projects</h1>
+
+<style>
+/* your CSS here */
+</style>
+
+<div class="grid">
+{% for project in projects %}
+    <div class="card">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description|truncatewords:15 }}</p>
+        <a class="btn" href="/portfolio/{{ project.id }}/">View Project</a>
+    </div>
+{% empty %}
+    <p>No projects yet.</p>
+{% endfor %}
+</div>
+
+{% endblock %}
